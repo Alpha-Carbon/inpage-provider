@@ -30,7 +30,6 @@ interface InitializeProviderOptions extends CarbonInpageProviderOptions {
  * @param options.maxEventListeners - The maximum number of event listeners.
  * @param options.shouldSendMetadata - Whether the provider should send page metadata.
  * @param options.shouldSetOnWindow - Whether the provider should be set as window.carbon.
- * @param options.shouldShimWeb3 - Whether a window.web3 shim should be injected.
  * @returns The initialized provider (whether set or not).
  */
 export function initializeProvider({
@@ -40,7 +39,6 @@ export function initializeProvider({
   maxEventListeners = 100,
   shouldSendMetadata = true,
   shouldSetOnWindow = true,
-  // shouldShimWeb3 = false,
 }: InitializeProviderOptions): CarbonInpageProvider {
   let provider = new CarbonInpageProvider(connectionStream, {
     jsonRpcStreamName,
@@ -57,10 +55,6 @@ export function initializeProvider({
   if (shouldSetOnWindow) {
     setGlobalProvider(provider);
   }
-
-  // if (shouldShimWeb3) {
-  //   shimWeb3(provider, logger);
-  // }
 
   return provider;
 }

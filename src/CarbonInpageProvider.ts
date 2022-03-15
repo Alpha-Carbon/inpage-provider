@@ -11,10 +11,10 @@ import BaseProvider, {
 
 export interface SendSyncJsonRpcRequest extends JsonRpcRequest<unknown> {
   method:
-  | 'eth_accounts'
-  | 'eth_coinbase'
-  | 'eth_uninstallFilter'
-  | 'net_version';
+    | 'eth_accounts'
+    | 'eth_coinbase'
+    | 'eth_uninstallFilter'
+    | 'net_version';
 }
 
 type WarningEventName = keyof SentWarningsState['events'];
