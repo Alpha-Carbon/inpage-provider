@@ -1,10 +1,10 @@
 import { Duplex } from 'stream';
-import MetaMaskInpageProvider, {
-  MetaMaskInpageProviderOptions,
-} from './MetaMaskInpageProvider';
-import shimWeb3 from './shimWeb3';
+import CarbonInpageProvider, {
+  CarbonInpageProviderOptions,
+} from './CarbonInpageProvider';
+// import shimWeb3 from './shimWeb3';
 
-interface InitializeProviderOptions extends MetaMaskInpageProviderOptions {
+interface InitializeProviderOptions extends CarbonInpageProviderOptions {
   /**
    * The stream used to connect to the wallet.
    */
@@ -22,7 +22,7 @@ interface InitializeProviderOptions extends MetaMaskInpageProviderOptions {
 }
 
 /**
- * Initializes a MetaMaskInpageProvider and (optionally) assigns it as window.carbon.
+ * Initializes a CarbonInpageProvider and (optionally) assigns it as window.carbon.
  *
  * @param options - An options bag.
  * @param options.connectionStream - A Node.js stream.
@@ -40,9 +40,9 @@ export function initializeProvider({
   maxEventListeners = 100,
   shouldSendMetadata = true,
   shouldSetOnWindow = true,
-  shouldShimWeb3 = false,
-}: InitializeProviderOptions): MetaMaskInpageProvider {
-  let provider = new MetaMaskInpageProvider(connectionStream, {
+  // shouldShimWeb3 = false,
+}: InitializeProviderOptions): CarbonInpageProvider {
+  let provider = new CarbonInpageProvider(connectionStream, {
     jsonRpcStreamName,
     logger,
     maxEventListeners,
@@ -58,9 +58,9 @@ export function initializeProvider({
     setGlobalProvider(provider);
   }
 
-  if (shouldShimWeb3) {
-    shimWeb3(provider, logger);
-  }
+  // if (shouldShimWeb3) {
+  //   shimWeb3(provider, logger);
+  // }
 
   return provider;
 }
@@ -72,7 +72,7 @@ export function initializeProvider({
  * @param providerInstance - The provider instance.
  */
 export function setGlobalProvider(
-  providerInstance: MetaMaskInpageProvider,
+  providerInstance: CarbonInpageProvider,
 ): void {
   (window as Record<string, any>).carbon = providerInstance;
   window.dispatchEvent(new Event('carbon#initialized'));
