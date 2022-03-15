@@ -14,11 +14,6 @@ interface InitializeProviderOptions extends CarbonInpageProviderOptions {
    * Whether the provider should be set as window.carbon.
    */
   shouldSetOnWindow?: boolean;
-
-  /**
-   * Whether the window.web3 shim should be set.
-   */
-  shouldShimWeb3?: boolean;
 }
 
 /**
