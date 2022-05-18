@@ -1,6 +1,6 @@
 {
   "name": "@alphacarbon/inpage-provider",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A JavaScript Ethereum provider that connects to the wallet over a stream.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -26,7 +26,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Alpha-Carbon/inpage-provider"
+    "url": "git+https://github.com/Alpha-Carbon/inpage-provider.git"
   },
   "keywords": [
     "AlphaCarbon",
